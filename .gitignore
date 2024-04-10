@@ -1,32 +1,129 @@
-# Prerequisites
-*.d
+/*########################################################################
+`
+`Haroon Damra
+`
+`CSC-240-200
+`Date: 3/24/2024
+`
+`
+`Assignment: 13.2 File Display Program
+`
+`Description: Crated a program that takes user input and displays the text in 24 character at a time.
+`
+#########################################################################*/
+#include <iostream>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <conio.h> // This header is for console input/output functions specific to Windows.
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+using namespace std;
 
-# Precompiled Headers
-*.gch
-*.pch
+int main()
+{
+    string User_Input; // Variable to store user input for file selection.
+    fstream fin; // File stream object for reading files.
+    int start_end = 0; // Variable to control the loop.
+    string word; // Variable to store each word read from the file.
+    int loop; // Loop control variable.
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+    // Loop to continuously prompt the user until a valid file is chosen.
+    while (start_end == 0)
+    {
+        cout << "\nPlease enter the name of the text from the list of options.\n";
 
-# Fortran module files
-*.mod
-*.smod
+        cout << "-------------------------------------------------------\n";
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+        // Displaying the list of options for text files.
+        cout << "1) A Tale of Two Cities.txt\n2) Moby Dick.txt\n3) Adventures of Sherlock Holmes.txt\n4) Count Of Monte Cristo.txt\n";
 
-# Executables
-*.exe
-*.out
-*.app
+        cout << "--------------------------------------------------------\n";
+
+        cout << "Enter the text you would like to read: ";
+
+        // Allowing the user to input the name of the text file.
+        getline(cin, User_Input);
+
+        fin.open(User_Input, ios::in); // Opening the file specified by the user for reading.
+
+        // Handling the case when the file specified by the user is not found.
+        if (!fin)
+        {
+            cout << "File was not found.\n";
+        }
+
+        // If the user selects "A Tale of Two Cities.txt", display the first 24 lines of the file.
+        else if (User_Input == "A Tale of Two Cities.txt")
+        {
+            while (!fin.eof())
+            {
+                cout << endl;
+
+                for (loop = 0; loop < 24; loop++)
+                {
+                    getline(fin, word);
+                    cout << word << endl;
+                }
+                getch(); // Pausing output until a key is pressed.(Could've made a function, but I wanted to practice.)
+                loop = 0; // Resetting loop counter.
+            }
+            return 0; // Exiting the program after displaying the text.
+        }
+
+        // If the user selects "Moby Dick.txt", display the first 24 lines of the file.
+        else if (User_Input == "Moby Dick.txt")
+        {
+            while (!fin.eof())
+            {
+                cout << endl;
+
+                for (loop = 0; loop < 24; loop++)
+                {
+                    getline(fin, word);
+                    cout << word << endl;
+                }
+                getch(); // Pausing output until a key is pressed.
+                loop = 0; // Resetting loop counter.
+            }
+            return 0; // Exiting the program after displaying the text.
+        }
+
+        // If the user selects "Adventures of Sherlock Holmes.txt", display the first 24 lines of the file.
+        else if (User_Input == "Adventures of Sherlock Holmes.txt")
+        {
+            while (!fin.eof())
+            {
+                cout << endl;
+
+                for (loop = 0; loop < 24; loop++)
+                {
+                    getline(fin, word);
+                    cout << word << endl;
+                }
+                getch(); // Pausing output until a key is pressed.
+                loop = 0; // Resetting loop counter.
+            }
+            return 0; // Exiting the program after displaying the text.
+        }
+
+        // If the user selects "Count Of Monte Cristo.txt", display the first 24 lines of the file.
+        else if (User_Input == "Count Of Monte Cristo.txt")
+        {
+            while (!fin.eof())
+            {
+                cout << endl;
+                
+                for (loop = 0; loop < 24; loop++)
+                {
+                    getline(fin, word);
+                    cout << word << endl;
+                }
+                getch(); // Pausing output until a key is pressed.
+                loop = 0; // Resetting loop counter.
+            }
+            return 0; // Exiting the program after displaying the text.
+        }
+    }
+
+    return 0; // Exiting the program.
+}
